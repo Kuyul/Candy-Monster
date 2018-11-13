@@ -45,7 +45,6 @@ public class BallController : MonoBehaviour {
                 //Recalculate result
                 result = result.normalized * MaximumDrag;
             }
-            Debug.Log("result magnitude: " + result.magnitude);
 
             if (Input.GetMouseButtonUp(0))
             {
