@@ -10,4 +10,12 @@ public class GoalScript : MonoBehaviour {
             GameControl.Instance.MoveToNextPattern();
         }
     }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.tag == "Candy")
+        {
+            GameControl.Instance.MoveToNextPattern();
+        }
+    }
 }

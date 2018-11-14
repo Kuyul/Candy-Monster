@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Goal
   - Candy
+  - Dash
   layers:
   - Default
   - TransparentFX
