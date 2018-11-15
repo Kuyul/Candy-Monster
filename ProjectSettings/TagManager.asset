@@ -7,6 +7,7 @@ TagManager:
   - Goal
   - Candy
   - Dash
+  - Break
   layers:
   - Default
   - TransparentFX
@@ -43,4 +44,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Obstacles
+    uniqueID: 2131475799
     locked: 0

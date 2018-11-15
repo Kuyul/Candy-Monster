@@ -2,26 +2,33 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Attach this script to any object to make them move! ahhhh :D
 public class MoveScript : MonoBehaviour {
 
     //Declare public variables
-    public float SpeedX = 2f;
-    public float SpeedY = 2f;
-    public float MaxMovementX = 5f;
-    public float MaxMovementY = 5f;
+    public Transform[] target;
+    public float speed;
 
     //Declare private variables
-    private Vector3 InitPosition;
+    private float step;
+    private int Pathindex;
 
     private void Start()
     {
-        InitPosition = transform.position;
+         Pathindex = 0;
     }
 
-    // Update is called once per frame
     void Update () {
-        var newXPos = InitPosition.x + (Mathf.PingPong(Time.time * SpeedX, 2 * MaxMovementX) -  MaxMovementX);
-        var newYPos = InitPosition.y + (Mathf.PingPong(Time.time * SpeedY, 2 * MaxMovementY) - MaxMovementY);
-        transform.position = new Vector3( newXPos, newYPos, transform.position.z);
+        step = Time.deltaTime * speed;
+        transform.position = Vector3.MoveTowards(transform.position, target[Pathindex].position, step);
+
+        if (transform.position == target[Pathindex].position)
+        {
+            Pathindex++;
+            //Loop
+            if (Pathindex >= target.Length) {
+                Pathindex = 0;
+            }
+        }
     }
 }

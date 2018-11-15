@@ -96,5 +96,9 @@ public class BallSlingController : MonoBehaviour
         {
             rb.velocity = new Vector3(0,0,0);
         }
+
+        if (collision.tag == "Break") {
+            GameControl.Instance.GameOver();
+        }
     }
 }
